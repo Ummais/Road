@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Center Text and Image</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;  /* Stack elements vertically */
+            justify-content: center;  /* Center horizontally */
+            align-items: center;      /* Center vertically */
+            margin: 0;               /* Remove default margin */
+        }
+        .ribbon {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 80px;           /* Adjust the height of the ribbon */
+            background-color: black; /* Black ribbon */
+        }
+        header {
+            position: absolute;
+            top: 0;                 /* Align header on top of the ribbon */
+            width: 100%;
+            text-align: center;
+            font-size: 50px;         /* Adjust the font size as needed */
+            color: white;            /* Make text white */
+            line-height: 80px;       /* Match the ribbon height for vertical alignment */
+        }
+        .title {
+            margin-top: 100px;       /* Add space below the ribbon */
+            font-size: 36px;         /* Retain the font size */
+            text-align: center;      /* Center the text */
+            font-family: 'Arial', sans-serif; /* Set font to Arial */
+            font-weight: 300;        /* Lighter font weight */
+        }
+        .subtitle {
+            font-size: 18px;         /* Half the size of the title */
+            text-align: center;      /* Center the text */
+            font-family: 'Arial', sans-serif; /* Set font to Arial */
+            font-weight: 200;        /* Lighter font weight */
+            margin-top: 10px;        /* Space between title and subtitle */
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+            gap: 30px;               /* Space between images */
+            margin-top: 20px;        /* Add space above the grid */
+            padding: 20px;           /* Add padding around the grid */
+        }
+        .image-grid img {
+            width: 250px;           /* Increase image size */
+            height: 250px;
+            object-fit: contain;    /* Maintain aspect ratio without distortion */
+            border: none;           /* Remove borders */
+        }
+        .new-section {
+            margin-top: 60px;        /* Add space between sections */
+        }
+        .top-right-image {
+            position: absolute;     /* Position it absolutely */
+            top: 0px;              /* Distance from the top of the page */
+            right: 10px;            /* Distance from the right of the page */
+            width: 250px;           /* Set width */
+            height: 250px;          /* Set height */
+            object-fit: contain;    /* Maintain aspect ratio */
+        }
+        /* New Section for Graphic Design Arsenal */
+        .graphic-design-arsenal {
+            margin-top: 60px;        /* Add space between sections */
+        }
+        .arsenal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;  /* 2 columns */
+            gap: 60px;                    /* Gap between columns */
+            margin-top: 20px;
+            padding: 20px;
+        }
+        /* For each image and text pair */
+        .arsenal-grid-item {
+            display: flex;
+            align-items: center;        /* Align items vertically centered */
+            gap: 20px;                  /* Space between image and text */
+        }
+        .arsenal-grid img {
+            width: 150px;               /* Adjust image size */
+            height: 150px;
+            object-fit: contain;        /* Maintain aspect ratio */
+            border: none;               /* Remove borders */
+        }
+        .arsenal-text {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px; /* Reduced font size for the entire text */
+            color: black;
+            font-weight: 300; /* Same font weight for all text */
+        }
+        .arsenal-text b {
+            font-weight: 300; /* Make sure bold text has the same weight */
+        }
+        .black-ribbon {
+    position: relative;       /* Ensure child elements are positioned relative to this */
+    width: 100%;
+    height: 400px;            /* Ribbon height */
+    margin-top: 90px;
+    background-color: black;  /* Black ribbon */
+    color: white;             /* White text */
+    display: flex;
+    flex-direction: column;   /* Stack children vertically */
+    padding-left: 20px;       /* Add padding to the left */
+    padding-top: 20px;        /* Add padding to the top */
+    box-sizing: border-box;   /* Ensure padding doesn't affect width */
+    font-family: 'Arial', sans-serif;
+    font-weight: 200;
+    font-size: 20px;          /* Adjust this value to your desired font size */
+    line-height: 1.6;         /* Optional: Adjust line height for better readability */
+}
+
+.ribbon-image {
+    position: absolute;       /* Position the image relative to .black-ribbon */
+    right: 0;                 /* Align to the right edge of the ribbon */
+    top: 0;                   /* Align to the top edge of the ribbon */
+    width: 400px;             /* Match the ribbon height */
+    height: 400px;            /* Match the ribbon height */
+    object-fit: cover;        /* Ensure the image fills the space without distortion */
+}
+        .intro-section {
+            text-align: center;
+            margin-top: 150px; /* Space below the ribbon */
+            font-family: 'Arial', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .intro-section h1 {
+    font-size: 42px; 
+    font-weight: 200; /* Reduced font weight for thinner text */
+    line-height: 1.2;}
+    
+        .intro-section p {
+            font-size: 18px;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            font-weight: 200;
+        }
+.portfolio-arm {
+    position: absolute;
+    top: 770px; /* Position it beneath the black ribbon (adjust if needed) */
+    left: 0;    /* Align it with the left edge of the page */
+    width: 210px;  /* Match the image's natural width */
+    height: 580px; /* Match the image's natural height */
+    object-fit: contain; /* Maintain the aspect ratio */
+    z-index: 2; /* Ensure the image appears above other content */
+}
+footer {
+            background-color: black;       /* Black background */
+            color: white;                  /* White text color */
+            text-align: left;              /* Align text to the left */
+            padding: 20px;                 /* Add some padding for spacing */
+            font-family: 'Arial', sans-serif; /* Consistent font */
+            font-weight: 200;              /* Lighter font weight */
+            font-size: 16px;               /* Adjust font size */
+            position: relative;            /* Ensure it stays below all sections */
+            bottom: 0;                     /* Position it at the bottom */
+            width: 100%;                   /* Full width */
+            box-sizing: border-box;        /* Include padding in dimensions */
+        }
+        footer p {
+            margin: 0;                     /* Remove margin for the text */
+            line-height: 1.6;              /* Add spacing between lines */
+        }
+    </style>
+</head>
+<body>
+    <div class="ribbon"></div>
+    <header>BRXNES</header>
+    <div class="intro-section">
+        <h1>Welcome to My Creative Space</h1>
+        <p>Discover my journey through art and design, when I went by my online Alias "Brxnes". Explore my works and tools that shaped my passion.</p>
+    </div>
+    <div class="black-ribbon">
+        <h1>About Myself</h1>
+        <p>I have been drawing since birth, getting into digital illustration and graphic designing 
+            in my teens. Now, with all<br>my years of experience, skills and expertise, I'm diving 
+            into the professional world.</p>
+        <img src="chilldude.png" alt="Ribbon Image" class="ribbon-image">
+    </div>
+    <img src="arm.png" alt="Decorative Arm" class="portfolio-arm">
+    <h1 class="title">My Online Portfolio</h1>
+    <p class="subtitle">These are some of my personal favourites that I have drawn over the years</p> 
+    <div class="image-grid">
+        <img src="snake.png" alt="Image 1">
+        <img src="ss.png" alt="Image 2">
+        <img src="frieren 1.png" alt="Image 3">
+        <img src="capitano.PNG" alt="image 4">
+        <img src="dd.PNG" alt="Image 5">
+        <img src="mahito.png" alt="Image 6">
+    </div>
+    <!-- Transparent image at the top-right -->
+    <img src="upsidedown.png" alt="Transparent Image" class="top-right-image">
+
+    <!-- New Section: Sketches N' Oldies -->
+    <div class="new-section">
+        <h1 class="title">Sketches N' Oldies</h1>
+        <p class="subtitle">We all had to start somewhere.<br>These are some of my earlier works</p>
+        <div class="image-grid">
+            <img src="oldies1.png" alt="Oldie 1">
+            <img src="oldies2.png" alt="Oldie 2">
+            <img src="oldies3.png" alt="Oldie 3">
+            <img src="oldies4.png" alt="Oldie 4">
+            <img src="oldies5.png" alt="Oldie 5">
+            <img src="oldies6.png" alt="Oldie 6">
+        </div>
+    </div>
+    <div class="graphic-design-arsenal">
+        <h1 class="title">My Graphic Design Arsenal</h1>
+        <div class="arsenal-grid">
+            <div class="arsenal-grid-item">
+                <img src="krita.png" alt="Design 1">
+                <div class="arsenal-text">My favourite art software and image editing tool, period. 
+                    Super reliable, it's the first tool that I ever used. I keep coming back to it due to its simplicity.
+                </div>
+            </div>
+            <div class="arsenal-grid-item">
+                <img src="ptsai.png" alt="Design 2">
+                <div class="arsenal-text">About half of my artwork here was made using Sai. An amazing
+                    art software, but some days I spend more time troubleshooting it than using it.
+                </div>
+            </div>
+            <div class="arsenal-grid-item">
+                <img src="medp.png" alt="Design 3">
+                <div class="arsenal-text">The least memory intensive art software here if you dont use its cloud features.
+                    Its so ridiculously easy to use that it made me feel like a better artist than I actually am.
+                </div>
+            </div>
+            <div class="arsenal-grid-item">
+                <img src="gimp.png" alt="Design 4">
+                <div class="arsenal-text">My good 'ol reliable when it comes to image editing. I actually used this first to learn digital
+                    illustration, but uh... let's just say it made toddler me's drawing look like the mona lisa.</div>
+            </div>
+            <div class="arsenal-grid-item">
+                <img src="ps.png" alt="Design 5">
+                <div class="arsenal-text">Probably the best image editing and art software objectively, but
+                     its way too memory intensive for me to use long-term.</div>
+                </div>
+        </div>
+    </div>
+    <footer>
+        <p>Real Name: Ummais Khizar</p>
+        <p>Email : ummaiskhizar@gmail.com</p>
+        <p>Phone number: 03015188310</p>
+        <p>Instagram: @brxnes</p>
+        <p>This website was made using HTML, CSS, Flexbox, and a lot of coffee.</p>
+    </footer>
+</body>
+</html> 
